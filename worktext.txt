@@ -10,3 +10,29 @@ git remote add origin https://github.com/L-graf/ПАПКА.git
  создаём ветку Мастер, которая будет связана с нашей веткой Мастер
 
 создание ветки: git checkout -b ИМЯ_ВЕТКИ
+
+
+Как создать репозиторий:
+1. Создаем каталог
+2. git init
+3. 
+
+
+1. проверка обновлений 
+git pull
+на каждую ветку своя проверка обновлений
+2. проверка состояния
+git status
+3. новая ветка перед началом работы, от ветки мастер
+git checkout master
+git checkout -b NEW_BRUNCH
+если нужная ветка существует, команда одна
+git checkout <ИМЯ ВЕТКИ>
+4. работаем в новой ветке
+5. сохранение
+git add .
+git commit -a -m "COMMENT"
+6. отправка изменений на гитхаб
+git push --set-upstream origin BRUNCH_NAME
+если уже пушили в эту ветку, то
+git push
