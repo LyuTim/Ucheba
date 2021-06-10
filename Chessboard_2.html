@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+    <head>
+		<meta charset="utf-8">
+	    <title>Шахматная доска</title>
+		<style>
+			/*table {
+				border-collapse: collapse;				
+			}
+			td {
+				font-size: 350%;
+				text-align: center;
+				border: 1px solid #963;
+			}
+			th {
+				font-size: 200%;
+				text-align: center;
+			}
+			.w {
+				width: 80px;
+				height: 80px;
+				background-color: #FC9;
+			}
+			.b {
+				width: 50px;
+				height: 50px;
+				background-color: #963;
+			}		*/
+			
+			
+			.container {
+				display: flex;
+				height: 840px;
+				width: 840px;
+				flex-wrap: wrap;
+				background: #cc9a67;				
+				justify-content: center;				
+				align-content: center;
+				text-align: center;
+				align-items: center;
+			}
+			.inner_b {
+				height: 80px;
+				width: 80px;
+				background: #963;
+				font-size: 350%;
+				text-align: center;
+				align-items: center;
+			}
+			.inner_w {
+				height: 80px;
+				width: 80px;
+				background: #FC9;
+				font-size: 350%;
+				text-align: center;
+				align-items: center;
+			}
+			.edge {
+				height: 80px;
+				width: 80px;
+				background: #cc9a67;
+				font-size: 250%;
+				text-align: center;
+				align-items: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="edge"></div>
+			<div class="edge">A</div>
+			<div class="edge">B</div>
+			<div class="edge">C</div>
+			<div class="edge">D</div>
+			<div class="edge">E</div>
+			<div class="edge">F</div>
+			<div class="edge">G</div>
+			<div class="edge">H</div>
+			<div class="edge"></div>
+		
+			<div class="edge">8</div>
+			<div class="inner_w">&#9820;</div>
+			<div class="inner_b">&#9822;</div>
+			<div class="inner_w">&#9821;</div>
+			<div class="inner_b">&#9819;</div>
+			<div class="inner_w">&#9818;</div>
+			<div class="inner_b">&#9821;</div>
+			<div class="inner_w">&#9822;</div>
+			<div class="inner_b">&#9820;</div>
+			<div class="edge">8</div>
+			
+			<div class="edge">7</div>
+			<div class="inner_b">&#9823;</div>
+			<div class="inner_w">&#9823;</div>
+			<div class="inner_b">&#9823;</div>
+			<div class="inner_w">&#9823;</div>
+			<div class="inner_b">&#9823;</div>
+			<div class="inner_w">&#9823;</div>
+			<div class="inner_b">&#9823;</div>
+			<div class="inner_w">&#9823;</div>
+			<div class="edge">7</div>
+			
+			<div class="edge">6</div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>	
+			<div class="edge">6</div>
+			
+			<div class="edge">5</div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>	
+			<div class="edge">5</div>
+			
+			<div class="edge">4</div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>	
+			<div class="edge">4</div>
+			
+			<div class="edge">3</div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>
+			<div class="inner_b"></div>
+			<div class="inner_w"></div>	
+			<div class="edge">3</div>
+			
+			<div class="edge">2</div>
+			<div class="inner_w">&#9817;</div>
+			<div class="inner_b">&#9817;</div>
+			<div class="inner_w">&#9817;</div>
+			<div class="inner_b">&#9817;</div>
+			<div class="inner_w">&#9817;</div>
+			<div class="inner_b">&#9817;</div>
+			<div class="inner_w">&#9817;</div>
+			<div class="inner_b">&#9817;</div>	
+			<div class="edge">2</div>
+			
+			<div class="edge">1</div>
+			<div class="inner_b">&#9814;</div>
+			<div class="inner_w">&#9816;</div>
+			<div class="inner_b">&#9815;</div>
+			<div class="inner_w">&#9813;</div>
+			<div class="inner_b">&#9812;</div>
+			<div class="inner_w">&#9815;</div>
+			<div class="inner_b">&#9816;</div>
+			<div class="inner_w">&#9814;</div>	
+			<div class="edge">1</div>
+			
+			
+			<div class="edge"></div>
+			<div class="edge">A</div>
+			<div class="edge">B</div>
+			<div class="edge">C</div>
+			<div class="edge">D</div>
+			<div class="edge">E</div>
+			<div class="edge">F</div>
+			<div class="edge">G</div>
+			<div class="edge">H</div>
+			<div class="edge"></div>
+		</div>
+	</body>
+</html>
