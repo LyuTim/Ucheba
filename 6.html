@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Exersices</title>
+<script>
+	let spisok = [];
+	spisok.push('salt');
+	spisok.push('beer');
+	spisok.push('carrot');
+	spisok.push('chiken');
+	spisok.push('pizza');
+	
+	let str = spisok.join(', ');
+	alert('Need buy: ' + str + '.');
+	
+	let cennik = {};
+	for (unit of spisok) {
+		cennik[unit] = 0;
+	}
+	cennik.salt = 10;
+	cennik.beer = 100;
+	cennik.carrot = 50;
+	cennik.chiken = 250;
+	cennik.pizza = 500;
+	
+	let sum = 0;
+	
+	for (num in cennik) {
+		sum += cennik[num];
+	}
+	
+	alert (sum);
+	
+</script>
+</head>
+<body>
+
+</div>
+</body>
+</html>
