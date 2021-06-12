@@ -13,64 +13,59 @@
 * По желанию можно сделать счетчик правильных ответов.
 */
 			//объект "Игра в загадки"
+			let i = 0;
 			let game = {
 				//"Массив загадок":
 				puzzles: [
 					//Объект "Загадка1"
-					riddle1 = {
+					{
 						question: "1?",
 						answer: ["1", "11"],				
-					}
-					,
+					},
 					//Объект "Загадка2"
-					riddle2 = {
+					{
 						question: "2?",
 						answer: ["2", "22"],				
-					}
-					,
+					},
 					//Объект "Загадка3"
-					riddle3 = {
+					{
 						question: "3?",
 						answer: ["3", "33"],						
-					}
-					,
-				]
-				,
+					},
+				],
+				
 				//Метод "Загадать":
-				 play() {
-					let len = alert(puzzles.length);
-				
-				
-					for (i of puzzles) {
-						for (j of puzzles) 
-						ans = prompt(puzzles[i], '');
-						if ans == 
+				 play: function() {
+					 //Здороваемся
+					 alert('Привет!');
+					 
+					 //Говорим сколько загадок
+					alert('Сейчас я загадаю вам ' + this.puzzles.length + ' загадки!');				
+					
+					for (let que of this.puzzles) {
+						let ans = prompt(que.question).toLowerCase();
+						let flag = true; //флаг "нет правильного ответа"
+						
+						for (let a of que.answer) {
+							if (ans == a) {
+								alert('Ответ правильный!');
+								i++
+								flag = false;//сняли влаг т.к. есть правильный ответ.
+								break;
+							}
+						}
+						if (flag) alert ('Ответ неправильный!');				
+					}
+					alert('Количество правильных ответов: ' + i + '/' + game.puzzles.length);
+					let end = prompt('Игра окончена! Хотите сыграть еще?', 'Да');
+					if (end == 'Да') {
+						game.play();
+					} else {
+						alert('До свидания!');
 					}
 				}
-			}
-			
-			
-	
-			 
-			
-			
-			
-			
-			
-			
-			alert(game)
-			
-			
-			
-
-
-
-
-
-			
-			
-			
-
+			}			
+			game.play();
         </script>
     </head>
     <body></body>
