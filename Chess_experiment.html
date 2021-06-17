@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html>
+    <head>
+		<meta charset="utf-8">
+	    <title>Шахматная доска</title>
+		<style>
+			/* .b {
+				width: 80px;
+				height: 80px;
+				background-color: #FC9;
+			}
+			.w {
+				width: 80px;
+				height: 80px;
+				background-color: #963;
+			}	 */	
+			
+
+			* {
+                padding: 0;
+                margin: 0;
+            }
+			
+			table {
+				border-collapse: collapse;	
+				margin: 50px auto;				
+			}
+			
+
+			td, th {
+                height: 80px;
+                width: 80px;
+                text-align: center;
+                vertical-align: middle;
+                font-size: 350%;
+                position: relative;
+            }
+			th {
+				width: 80px;
+				height: 80px;
+				background-color: #b98957;
+				font-size: 200%;
+				position: relative;
+			}			
+			
+			tr:nth-child(odd) td:nth-child(odd),
+			tr:nth-child(even) td:nth-child(even) {
+				background: #e2b180;
+			}
+			tr:nth-child(odd) td:nth-child(even),
+			tr:nth-child(even) td:nth-child(odd) {
+				background: #895826;
+			}			
+			
+			.white_king:after {
+				position: absolute;
+				top: 0;
+				width: 80px;
+				display: block;
+				content: '\2654';
+				line-height: 80px;
+				color: white;
+			}			
+			.white_queen:after {
+				position: absolute;
+				top: 0;
+				width: 80px;
+				display: block;
+				content: '\2655';
+				line-height: 80px;
+				color: white;
+			}
+			.white_rook:after {
+				position: absolute;
+				top: 0;
+				width: 80px;
+				display: block;
+				content: '\2656';
+				line-height: 80px;
+				color: white;
+			}
+			.white_knight:after {
+				position: absolute;
+				top: 0;
+				width: 80px;
+				display: block;
+				content: '\2658';
+				line-height: 80px;
+				color: white;
+			}			
+			.white_bishop:after {
+				position: absolute;
+				top: 0;
+				width: 80px;
+				display: block;
+				content: '\2657';
+				line-height: 80px;
+				color: white;
+			}
+			.white_pawn:after {
+				position: absolute;
+				top: 0;
+				width: 80px;
+				display: block;
+				content: '\2659';
+				line-height: 80px;
+				color: white;
+			}
+
+			.black_king:after {
+				position: absolute;
+				top: 0;
+				width: 80px;
+				display: block;
+				content: '\265A';
+				line-height: 80px;
+				color: black;
+			}			
+			.black_queen:after {
+				position: absolute;
+				top: 0;
+				width: 80px;
+				display: block;
+				content: '\265B';
+				line-height: 80px;
+				color: black;
+			}
+			.black_rook:after {
+				position: absolute;
+				top: 0;
+				width: 80px;
+				display: block;
+				content: '\265C';
+				line-height: 80px;
+				color: black;
+			}
+			.black_knight:after {
+				position: absolute;
+				top: 0;
+				width: 80px;
+				display: block;
+				content: '\265E';
+				line-height: 80px;
+				color: black;
+			}			
+			.black_bishop:after {
+				position: absolute;
+				top: 0;
+				width: 80px;
+				display: block;
+				content: '\265D';
+				line-height: 80px;
+				color: black;
+			}
+			.black_pawn:after {
+				position: absolute;
+				top: 0;
+				width: 80px;
+				display: block;
+				content: '\265F';
+				line-height: 80px;
+				color: black;
+			}
+		</style>
+		<script>
+let chessnames = ['king', 'queen', 'bishop', 'knight', 'rook', 'pawn'];
+let chesscolors = ['white', 'black'];
+let coords = [['a','b','c','d','e','f','g','h'], [1, 2, 3, 4, 5, 6, 7, 8]];
+        
+function kingspath(begin, end) {
+    let a = document.getElementById(begin);
+    let b = document.getElementById(end);
+    if (!check_cell(a, b)) {
+        alert('Так ходить нельзя!')
+        return;
+    }
+    b.className = a.className;
+    a.className = '';
+}
+function check_cell(a, b) {
+    let name = a.className;
+    if (!name) return false;
+    let namearr = name.split('_');
+    if (!check_color(namearr[0])) return false;
+    if (!check_path(namearr, a, b)) return false;
+    return true;
+}
+function check_path(namearr, a, b) {
+    if (namearr[1] == 'king') {
+        pathes = [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]];
+    }
+    let begin_id = a.id;
+    let end_id = b.id;
+    let begin_idx1 = coords[0].findIndex(item => item == begin_id[0]);
+    let begin_idx2 = coords[1].findIndex(item => item == begin_id[1]);
+    let end_idx1 = coords[0].findIndex(item => item == end_id[0]);
+    let end_idx2 = coords[1].findIndex(item => item == end_id[1]);
+    for (path of pathes) {
+        if ((path[0] == begin_idx1 - end_idx1) && (path[1] == begin_idx2 - end_idx2)) {
+            if (check_aim(namearr, a, b)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+}
+function check_aim(namearr, a, b) {
+    if (b.className) return false;
+    return true;
+}
+function check_color(color) {
+    return true;
+}
+        </script>
+	</head>
+	<body>
+		<table>
+            <caption></caption>
+            <tbody>
+                <tr>
+                    <th></th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+                    <th>F</th>
+                    <th>G</th>
+                    <th>H</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>8</th>
+                    <td id="a8" class="black_rook"></td>
+                    <td id="b8" class="black_knight"></td>
+                    <td id="c8" class="black_bishop"></td>
+                    <td id="d8" class="black_queen"></td>
+                    <td id="e8" class="black_king"></td>
+                    <td id="f8" class="black_bishop"></td>
+                    <td id="g8" class="black_knight"></td>
+                    <td id="h8" class="black_rook"></td>
+                    <th>8</th>
+                </tr>
+                <tr>
+                    <th>7</th>
+                    <td id="a7" class="black_pawn"></td>
+                    <td id="b7" class="black_pawn"></td>
+                    <td id="c7" class="black_pawn"></td>
+                    <td id="d7" class="black_pawn"></td>
+                    <td id="e7" class="black_pawn"></td>
+                    <td id="f7" class="black_pawn"></td>
+                    <td id="g7" class="black_pawn"></td>
+                    <td id="h7" class="black_pawn"></td>
+                    <th>7</th>
+                </tr>
+                <tr>
+                    <th>6</th>
+                    <td id="a6"></td>
+                    <td id="b6"></td>
+                    <td id="c6"></td>
+                    <td id="d6"></td>
+                    <td id="e6"></td>
+                    <td id="f6"></td>
+                    <td id="g6"></td>
+                    <td id="h6"></td>
+                    <th>6</th>
+                </tr>
+                <tr>
+                    <th>5</th>
+                    <td id="a5"></td>
+                    <td id="b5"></td>
+                    <td id="c5"></td>
+                    <td id="d5"></td>
+                    <td id="e5"></td>
+                    <td id="f5"></td>
+                    <td id="g5"></td>
+                    <td id="h5"></td>
+                    <th>5</th>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <td id="a4"></td>
+                    <td id="b4"></td>
+                    <td id="c4"></td>
+                    <td id="d4"></td>
+                    <td id="e4"></td>
+                    <td id="f4"></td>
+                    <td id="g4"></td>
+                    <td id="h4"></td>
+                    <th>4</th>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td id="a3"></td>
+                    <td id="b3"></td>
+                    <td id="c3"></td>
+                    <td id="d3"></td>
+                    <td id="e3"></td>
+                    <td id="f3"></td>
+                    <td id="g3"></td>
+                    <td id="h3"></td>
+                    <th>3</th>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td id="a2" class="white_pawn"></td>
+                    <td id="b2" class="white_pawn"></td>
+                    <td id="c2" class="white_pawn"></td>
+                    <td id="d2" class="white_pawn"></td>
+                    <td id="e2" class="white_pawn"></td>
+                    <td id="f2" class="white_pawn"></td>
+                    <td id="g2" class="white_pawn"></td>
+                    <td id="h2" class="white_pawn"></td>
+                    <th>2</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td id="a1" class="white_rook"></td>
+                    <td id="b1" class="white_knight"></td>
+                    <td id="c1" class="white_bishop"></td>
+                    <td id="d1" class="white_queen"></td>
+                    <td id="e1" class="white_king"></td>
+                    <td id="f1" class="white_bishop"></td>
+                    <td id="g1" class="white_knight"></td>
+                    <td id="h1" class="white_rook"></td>
+                    <th>1</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>A</th>
+                    <th>B</th>
+                    <th>C</th>
+                    <th>D</th>
+                    <th>E</th>
+                    <th>F</th>
+                    <th>G</th>
+                    <th>H</th>
+                    <th></th>
+                </tr>
+            </tbody>
+        </table>
+	</body>
+</html>
