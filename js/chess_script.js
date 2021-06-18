@@ -10,10 +10,11 @@ let counter = true;//тру и фолс, выбирем начальную и к
 let flag = true;//тру и фолс, таймаут для того чтобы видеть выбранные клетки и не сразу выполнять ход
 let save_class = ''; //сохраняем класс выбранной фигуры
 let coords = [['a','b','c','d','e','f','g','h'], [1, 2, 3, 4, 5, 6, 7, 8]];
+let pieces = ['white_queen','white_rook','white_bishop','white_pawn','black_queen','black_rook','black_bishop','black_pawn','white_king','white_knight','black_king','black_knight'];
 
 //проверяет пустая ли клетка:
 function isEmpty(cell) {
-	for (klass of ['white_king','white_knight','black_king','black_knight']) {
+	for (klass of pieces) {
 		if (cell.classList.contains(klass)) {
 			return false;
 		}
@@ -23,10 +24,14 @@ function isEmpty(cell) {
 
 //проверяет является ли путь фигуры допустимым:
 function check_path(a, b) {
+	let pathes;
 	if (save_class == 'white_king' || save_class == 'black_king') {
-		let pathes = [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]];
+		pathes = [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]];
 	} else if (save_class == 'white_knight' || save_class == 'black_knight') {	
-	    let pathes = [[-2,-1],[-2,1],[2,-1],[2,1],[-1,-2],[-1,2],[1,-2],[1,2]];
+	    pathes = [[-2,-1],[-2,1],[2,-1],[2,1],[-1,-2],[-1,2],[1,-2],[1,2]];
+	}
+	 else if (save_class == 'white_rook' || save_class == 'black_rook') {	
+	    pathes = [[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,-1],[0,-2],[0,-3],[0,-4],[0,-5],[0,-6],[0,-7],[1,0],[2,0],[3,0],[4,0],[5,0],[6,0],[7,0],[-1,0],[-2,0],[-3,0],[-4,0],[-5,0],[-6,0],[-7,0]];
 	}
 	let begin_idx1 = coords[0].findIndex(item => item == a.id[0]);
 	let begin_idx2 = a.id[1];
@@ -37,38 +42,35 @@ function check_path(a, b) {
 			return true;
 		}
 	}
-	return false;
-	
+	return false;	
 }
 
 
 document.addEventListener('click', function(event){
-    if ((!flag) || (event.target.tagName.toLowerCase() != 'td')) return; 
-    if (counter) {  
-        if (isEmpty(event.target) return;  
-		save_class = event.target.className.split(' ')[0]; 
-        event.target.classList.add('startpoint');  
-		document.body.classList.add('mouseup'); 
+    if ((!flag) || (event.target.tagName.toLowerCase() != 'td')) return;
+    if (counter) {
+        if (isEmpty(event.target)) return;
+        save_class = event.target.className.split(' ')[0]; // !!!
+        event.target.classList.add('startpoint');
+        document.body.classList.add('mouseup');
     } else {
-        if (!check_path(document.querySelector('.startpoint'), event.target) || !isEmpty(event.target)) { 
+        if (!check_path(document.querySelector('.startpoint'), event.target) || !isEmpty(event.target)) {
             alert('Сюда ходить нельзя!');
             return;
         }
-        event.target.classList.add('endpoint'); 
-        flag = false; 
+        event.target.classList.add('endpoint');
+        flag = false;
         setTimeout(function(){
-			document.querySelector('.startpoint').classList.remove(save_class);
+            document.querySelector('.startpoint').classList.remove(save_class);
             document.querySelector('.endpoint').classList.add(save_class);
             document.querySelector('.mouseup').classList.remove('mouseup');
             document.querySelector('.startpoint').classList.remove('startpoint');
             document.querySelector('.endpoint').classList.remove('endpoint');
-			save_class = '';
+            save_class = '';
             flag = true;
         }, 500);
     }
     counter = !counter;
 });
-
-
 
 

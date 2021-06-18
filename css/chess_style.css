@@ -1,68 +1,93 @@
-			/* .b {
-				width: 80px;
-				height: 80px;
-				background-color: #FC9;
-			}
-			.w {
-				width: 80px;
-				height: 80px;
-				background-color: #963;
-			}	 */	
-			
-
 * {
-padding: 0;
-margin: 0;
+	padding: 0;
+	margin: 0;
 }
 table {
-height: 500px;
-width: 500px;
-margin: 50px auto;
+	height: 500px;
+	width: 500px;
+	margin: 50px auto;
 }
 td, th {
-height: 46px;
-width: 46px;
-border: 2px solid transparent;
-text-align: center;
-vertical-align: middle;
-font: normal 20px/30px Arial;
-position: relative;
+	height: 46px;
+	width: 46px;
+	border: 2px solid transparent;
+	text-align: center;
+	vertical-align: middle;
+	font: normal 20px/30px Arial;
+	position: relative;
 }
 tr:nth-child(odd) td:nth-child(odd),
 tr:nth-child(even) td:nth-child(even) {
-background: #bbb;
-border-color: #bbb;
+	background: #bbb;
+	border-color: #bbb;
 }
 tr:nth-child(odd) td:nth-child(even),
 tr:nth-child(even) td:nth-child(odd) {
-background: #666;
-border-color: #666;
+	background: #666;
+	border-color: #666;
 }
 td:after {
-position: absolute;
-top: -2px;
-left: -2px;
-width: 50px;
-display: block;
-font-size: 30px;
-line-height: 50px;
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	width: 50px;
+	display: block;
+	font-size: 30px;
+	line-height: 50px;
 }
+
 .white_king:after {
-content: '\2654';
-color: white;
-}
-.black_king:after {
-content: '\265a';
-color: black;
+	content: '\2654';
+	color: white;
 }
 .white_knight:after {
-content: '\2658';
-color: white;
+	content: '\2658';
+	color: white;
+}
+.white_queen:after {
+	content: '\2655';
+	color: white;
+}
+.white_rook:after {
+	content: '\2656';
+	color: white;
+}
+.white_bishop:after {
+	content: '\2657';
+	color: white;
+}
+.white_pawn:after {
+	content: '\2659';
+	color: white;
+}
+
+
+.black_king:after {
+	content: '\265a';
+	color: black;
 }
 .black_knight:after {
-content: '\265E';
-color: black;
+	content: '\265E';
+	color: black;
 }
+.black_queen:after {
+	content: '\265B';
+	color: black;
+}
+.black_rook:after {
+	content: '\265C';
+	color: black;
+}
+.black_bishop:after {
+	content: '\265D';
+	color: black;
+}
+.black_pawn:after {
+	content: '\265F';
+	color: black;
+}
+
+
 body.mouseup td.startpoint {
 border-color: yellow;
 }
