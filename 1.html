@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>I like to move it, move it!</title>
+		<style>
+			.container {
+				position: relative;
+				height: 1000px;
+				width: 1000px;
+				background: green;
+			}
+			.inner {
+				height: 100px;
+				width: 100px;
+				background: blue;
+			}
+		</style>
+		<script>
+			document.addEventListener('DOMContentLoaded', function
+			/*
+			document.addEventListener('DOMContentLoaded', function() {
+				alert("DOM Ready!");
+				obj = document.querySelector('.inner');
+				obj.style.position = 'absolute';
+				obj.style.top = '100px';
+				obj.style.left = '100px';
+				});
+				*/
+				document.addEventListener('mousedown', function(e){
+					if (check_e)(e) {
+						e.target.style.position = 'absolute'
+					}
+					
+				});
+				document.addEventListener('mousemove', function(e){
+					
+				});
+				document.addEventListener('mouseup', function(e){
+					
+				});
+			});
+			function check_e(e) {
+				if (e.target == document.querySelector('.inner')) return true;
+				return false;
+			}
+			function check_mouse (e) {
+				return {
+					x: e.pageX;
+					y: e.pageY;
+				}
+			}
+			
+
+
+		</script>
+	</head>
+	<body>
+		<div class='container'>
+			<div class='inner'></div>
+		</div>
+	</body>
+</html>
