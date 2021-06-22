@@ -6,6 +6,7 @@ body {
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
 	min-width: 320px;
+	/*max-width: 1366px;*/
 }
 .container {
 	max-width: 1140px;
@@ -26,20 +27,17 @@ header {
 	font-size: 20px;
 	line-height: 30px;
 	text-align: center;
-	letter-spacing: 0.04em;
-	
+	letter-spacing: 0.04em;	
 }
 .topheader {
-	height: 130px;
-	
+	height: 130px;	
 }
 .topheader .container {
 	height: 45px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 37px 114px 47px 114px;
-	
+	padding: 37px 114px 47px 114px;	
 }
 .bottomheader {
 	background-image: url('../images/title.png');
@@ -59,12 +57,72 @@ header {
 	opacity: 0.6;
 }
 .bottomheader > h2 {
-	weight: 500;
+	font-weight: 500;
 	height: 74px;
-	width: 233px;
-	
+	width: 233px;	
+}
+/*==================================================================================================*/
+/* main */
+
+.topmain {
+	display:flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
 }
 
+.leftcolumn {
+	height: 668px;
+	width: 300px;
+	padding: 135px 100px 150px 212px;
+}
+
+.leftcolumn .container {
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 26px;
+	letter-spacing: 0.04em;
+	color: #1F3F68;
+	opacity: 0.6;	
+	padding: 0;
+}
+ul {
+  list-style-position: inside;
+}
+.textcolumn > h2 {
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 30px;
+	letter-spacing: 0.04em;
+	color: #1F3F68;
+	padding: 40px 0 24px;
+	margin: 0;
+}
+
+.phone  {
+	list-style-image: url('../images/ic_phone_24px.png');
+}
+.web {
+	list-style-image: url('../images/ic_language_24px.png');
+}
+.mail {
+	list-style-image: url('../images/ic_email_24px.png');
+}
+.imagecolumn {
+	padding: 0 0 16px;
+}
+
+
+
+
+
+.rightcolumn {
+	height: 800px;
+	width: 540px;
+	padding: 57px 212px 96px 0;
+	background: #733;
+}
+/*==================================================================================================*/
 /* footer */
 footer {
 	background: #316099;
@@ -138,6 +196,7 @@ ol.container li {
 	padding: 0 0 64px;
 }
 
+/*==================================================================================================*/
 /* планшетный вид */
 @media (max-width:1200px) {
 	.container {
@@ -184,6 +243,7 @@ ol.container li {
 		padding: 0 0 0 60px;
 	}
 }
+/*==================================================================================================*/
 /* мобильный вид */
 @media (max-width:550px) {
 	.container {
