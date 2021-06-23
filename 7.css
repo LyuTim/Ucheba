@@ -1,0 +1,105 @@
+* {
+	margin: 0;
+	padding: 0;
+	font: normal 20px/30px Arial;
+	color: black;
+}
+h1 {
+	font-size: 50px;
+	font-weight: bold;
+	line-height: 1;
+	color: red;
+	text-align: center;
+}
+p {
+	margin-top: 30px;
+	text-align: center;
+}
+input {
+	border: 1px solid blue;
+	padding: 5px;
+	width: 300px;
+	box-sizing: border-box;
+	text-align: center;
+}
+.openButton {
+	border: none;
+	background: green;
+	color: white;
+	width: 300px;
+	border: 1px solid blue;
+	padding: 5px;
+	height: 50px;
+	cursor: pointer;
+}
+.screen {
+	visibility: hidden;
+	opacity: 0;
+	top: -1000px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	background: rgba(0, 0, 0, 0.6);
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 60px 15px;
+
+}
+
+.calendar {
+	padding: 10px;
+	background: #fffff0;
+	position: relative;
+	border: 2px solid #000;
+}
+.calendarActive {
+	position: fixed;
+	top: 0;
+	visibility: visible;
+	opacity: 1;
+	transition: .3s;
+} 
+td {
+	border: 1px solid black;
+	height: 32px;
+	width: 50px;
+	text-align: center;
+}
+.monthYear {
+	border: 1px solid black;
+	text-align: center;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.monthYear > img {
+	height: 20px;
+	width: 30px;
+	padding: 3px;
+	cursor: pointer;
+}
+table {
+	padding: 5px;
+}
+
+.closeButton {
+	background: none;
+	border: none;
+	cursor: pointer;
+
+}
+
+.closeButton > img {
+	height: 20px;
+	width: 20px;
+	padding: 0 0 10px 0;
+	right: 0;
+
+}
+.closedB {
+	display: flex;
+	justify-content: flex-end;
+}

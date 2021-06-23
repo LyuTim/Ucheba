@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>jQUERY 1</title>
+	<script src="jquery-3.6.0.js"></script>
+	<script src='2.js'></script>
+
+	<style>
+.container {
+	margin: 50px;
+	height: 800px;
+	width: 800px;
+	background: pink;
+	position: relative;
+	font: normal 20px Arial;
+}
+
+button {
+	background: green;
+	height: 30px;
+	width: 100px;
+	color: white;
+}
+.modal {
+	position: absolute;
+	background: white;
+	width: 300px;
+	color: white;
+	top: 300px
+	left: 50%;
+	margin-left: -150px;
+	text-align: center;
+	border: 1px solid black;
+}
+.modal:before {
+	content: '';
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgbs(255,255,255,.5);
+}
+.modal > div {
+	text-align: center;
+	margin: 20px auto;
+	
+}
+</style>
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<button type='button'>Click me!</button>
+		<div class="modal">
+			<h1>MODAL WINDOW!</h1>
+			<div>click me!</div>
+		</div>
+
+	</div>
+</body>
+</html>
