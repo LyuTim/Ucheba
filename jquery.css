@@ -1,0 +1,68 @@
+.modal {
+	visibility: hidden;
+	opacity: 0;
+	top: -1000px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1000;
+	background: rgba(0, 0, 0, 0.6);
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 60px 15px;
+}
+ 
+.modalContainer {
+	padding: 50px;
+	background: #fffff0;
+	position: relative;
+	border: 2px solid #000;
+}
+ 
+ 
+.modalActive {
+	position: fixed;
+	top: 0;
+	visibility: visible;
+	opacity: 1;
+	transition: .3s;
+}
+.container {
+	width: 500px;
+	height: 500px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;	
+}
+.container button {
+	position: absolute;
+	width: 100px;
+	height: 50px;
+	background: #c5eff7;
+	border: 3px outset #81cfe0;
+}
+.container button:hover {
+	background: #81cfe0;
+	border: 3px outset #c5eff7;
+	text-decoration: underline;
+	cursor: pointer;
+}
+ 
+.SecondButton {
+	height: 30px;
+	width: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: none;
+	cursor: pointer;
+}
+
+ 
+
