@@ -20,11 +20,28 @@
     5.2) вставляем дату в поле ввода
     5.3) уничтожаем попап с календарем.
 */
-/*$(function(){
+$(function(){
    $('input, button').click(makePopup);
-});*/
+});
+const MONTHNAMES = ['Январь','Февраль','Март','Апрeль','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь']
+
 function makePopup(){
-    let now = new Date();
+    let today = new Date();
+	let my_year = today.getFullYear();
+	let my_month = today.getMonth();
+	let my_weekend = today.getDay();
+	let weeks = monthLength(my_month, my_year);
+	
+	let str = '<div class="header">' + MONTHNAMES[my_month] + ' ' + my_year + '</div><table>';
+	str += '<tr><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th class ="holiday">Вс</th></tr>'
+	for (let i = 0; i < weeks; i++) {
+		str += '<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>'
+	}
+	str += '<table><div class="footer"></div>'
+	//$('.mY').html(MONTHNAMES[my_month] + ' ' + my_year);
+	
+	
+	
     // получить и сохранить сегодняшнюю дату
     // создать верстку попапа
     // вставить верстку в страницу
@@ -40,3 +57,20 @@ $(function () {
     $('.screen').removeClass('calendarActive');
   });
 });
+
+
+function monthLength(month, year) {
+	let a = new Date(year, month); //ГГГГ.ММ.ДД 00:00:00.000
+	let b = new Date(year, month + 1); //ГГГГ.ММ.ДД 00:00:00.000
+	let c = (b - a) / (60000 * 60 * 24); //сколько полных дней прошло
+	if (!a.getDay()) {
+		c += 6;
+	} else {
+		c += a.getDay() - 1;
+	}	
+	let week_c = Math.floor(c / 7);
+	if (c % 7) {
+		weeks += 1;
+	}
+	return weeks;
+}
